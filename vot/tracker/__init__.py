@@ -241,6 +241,11 @@ class Tracker(object):
         self._metadata, args = Tracker._collect_metadata(**args)
         self._arguments, self._args = Tracker._collect_arguments(**args)
 
+        print(f"Creating tracker instance for {_identifier}")
+        print(f"The source is {_source}")
+        print(f"The command is {command}")
+        print(f"The protocol is {protocol}")
+
         if tags is None:
             self._tags = []
         elif isinstance(tags, str):
