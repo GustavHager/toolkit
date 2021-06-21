@@ -135,6 +135,7 @@ def normalize_paths(paths, tracker):
 class TrackerProcess(object):
 
     def __init__(self, command: str, envvars=dict(), timeout=30, log=False, socket=False):
+
         environment = dict(os.environ)
         environment.update(envvars)
 
@@ -142,6 +143,9 @@ class TrackerProcess(object):
 
         self._returncode = None
         self._socket = None
+        
+        print(f"__init__ for tracker with command {command}")
+        print(f"The working directory appears to be: {self._workdir}")
 
         if socket:
             for port in range(PORT_POOL_MIN, PORT_POOL_MAX):
