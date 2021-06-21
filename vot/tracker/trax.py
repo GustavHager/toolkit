@@ -146,6 +146,7 @@ class TrackerProcess(object):
         
         print(f"__init__ for tracker with command {command}")
         print(f"The working directory appears to be: {self._workdir}")
+        print(f"Envvars is {envvars}")
 
         if socket:
             for port in range(PORT_POOL_MIN, PORT_POOL_MAX):
