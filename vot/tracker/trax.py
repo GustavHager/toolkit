@@ -358,6 +358,8 @@ class TraxTrackerRuntime(TrackerRuntime):
         else:
             pathvar = "LD_LIBRARY_PATH"
 
+        print(f"Creating tracker: {tracker}, with command {command}")
+
         envvars[pathvar] = envvars[pathvar] + os.pathsep + os.pathsep.join(linkpaths) if pathvar in envvars else os.pathsep.join(linkpaths)
         envvars["TRAX"] = "1"
 
@@ -368,6 +370,7 @@ class TraxTrackerRuntime(TrackerRuntime):
         return self._tracker
 
     def _connect(self):
+        print("Attempting to connect")
         if not self._process:
             if not self._output is None:
                 log = self._output
@@ -378,6 +381,7 @@ class TraxTrackerRuntime(TrackerRuntime):
                 self._restart = True
 
     def _error(self, exception):
+        print("Something bad happened")
         workdir = None
         timeout = False
         if not self._output is None:
